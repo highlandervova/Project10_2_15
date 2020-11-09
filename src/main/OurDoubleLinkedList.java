@@ -51,6 +51,8 @@ public class OurDoubleLinkedList implements OurList{
                 return null;
             }
         } else {
+
+            //comment
             tmp = last;
             for (int i = size() - 1; i > index; i--) {
                 try {
