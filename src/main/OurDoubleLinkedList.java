@@ -26,8 +26,14 @@ public class OurDoubleLinkedList implements OurList {
 
     @Override
     public void add(Integer e) {
+
+
         DElement newDElement=new DElement(e);
-        last=newDElement;
+//        last=newDElement;
+//исправлено
+        newDElement.prev = last;
+        last = newDElement;
+
         DElement tmp1=null;
         if ( first==null) {
             first = newDElement;
@@ -145,7 +151,7 @@ public class OurDoubleLinkedList implements OurList {
             return  -1;
         }
         //if один объект
-        if (size()==0) {
+        if (size()==1) {  // исправила на 1, если один объект, то вернуть first
             if(first.value==e)
             {return 0;}else {return -1;}
         }
@@ -164,9 +170,11 @@ public class OurDoubleLinkedList implements OurList {
             return  -1;
         }
 // if один объект
-        if (size()==0) {
+        if (size()==1) {  // исправила на 1, если один объект, то вернуть first
             if(first.value==e)
-            {return 0;}else {return -1;}
+            {return 0;
+            }else {
+                return -1;}
         }
 
 
@@ -202,6 +210,7 @@ public class OurDoubleLinkedList implements OurList {
         }
         result+="}"+"\n"+ "Last "+last.value+ " next: "+last.next+" prev: "+last.prev;
         return result;
+
     }
 
     private Object getObjectDoubleLinkedList(int index) {
